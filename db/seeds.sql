@@ -21,7 +21,7 @@ VALUES
 ('Sean', 'McDermott', 2, NULL),
 ('Josh', 'Allen', 3, 1),
 ('Stefon', 'Diggs', 4, 1),
-('Tyler', 'Bass', 5, 1,
+('Tyler', 'Bass', 5, 1),
 ('Micah', 'Hyde', 6, NULL),
 ('Jordan', 'Poyer', 7, NULL),
 ('Dawson', 'Knox', 8, 1),
