@@ -80,17 +80,30 @@ function startPrompt(){
 }
 
 //viewAllDepartments function
+function viewAllDepartments(){
 
+}
 //viewAllRoles function
+function viewAllRoles(){
 
+}
 //viewAllEmployees function
+function viewAllEmployees(){
 
+}
 //AddADepartment function
+function addADepartment(){
 
+}
 //addARole function
+function addARole(){
 
+}
 //addAnEmployee function
+function addAnEmployee(){
 
+}
 //updateAnEmployeeRole function
+function updateAnEmployeeRole(){
 
-//exitFunction Function 
+}
