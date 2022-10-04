@@ -2,7 +2,7 @@
   "dependencies": {
     "console.table": "^0.10.0",
     "dotenv": "^16.0.3",
-    "inquirer": "^9.1.2",
+    "inquirer": "^8.2.4",
     "mysql2": "^2.3.3"
   },
   "scripts": {
@@ -12,6 +12,7 @@
   "description": "# Table of Contents  * [Description](#description)  * [Installation](#installation) * [License](#license) * [Contributing](#contributing) * [Questions](#questions)",
   "version": "1.0.0",
   "main": "server.js",
+  
   "devDependencies": {},
   "repository": {
     "type": "git",

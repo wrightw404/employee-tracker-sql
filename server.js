@@ -1,22 +1,24 @@
-import { prompt } from 'inquirer';
-import { createConnection } from 'mysql';
-import consoleTable from 'console.table';
+//import { prompt } from 'inquirer';
+const inquirer = require('inquirer');
+//import { createConnection } from 'mysql2';
+const mysql2 = require('mysql2');
+//import consoleTable from 'console.table';
+const consoleTable = require('console.table');
 
 const PORT = process.env.PORT || 3002;
-const app = express();
+//const app = express();
 
-app.use(express.urlencoded({extended: true}));
-app.us(exress.json());
+//app.use(express.urlencoded({extended: true}));
+//app.us(exress.json());
 
-require('dotenv').config();
+//require('dotenv').config();
 
-const db = createConnection(
-    process.env.DB.NAME,
-    process.env.DB.USER,
-    process.env.DB.PASSWORD,
+const db = mysql2.createConnection(
     {
-      host: 'localhost',
-      database: 'employeeTracker_db'
+        host: 'localhost',
+        database: 'employeeTracker_db',
+        user: 'root',
+        password: 'JESUITlax22',
     },
     console.log(`Connected to the employeeTracker_db database.`)
   );
@@ -27,8 +29,9 @@ db.connect((err) => {
 });
 
 //create prompt
+
 function startPrompt(){
-    prompt([ 
+    inquirer.prompt([ 
         { 
             name:'userInput',
             type:'list',
