@@ -29,6 +29,7 @@ to use this application one must install express
   npm install express
   npm install inquirer
   install mysql2
+  install console.table
 
 ## License 
 MIT license 
