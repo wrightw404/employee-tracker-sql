@@ -8,11 +8,14 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.us(exress.json());
 
+require('dotenv').config();
+
 const db = mysql.createConnection(
+    process.env.DB.NAME,
+    process.env.DB.USER,
+    process.env.DB.PASSWORD,
     {
       host: 'localhost',
-      user: 'root',
-      password: 'JESUITlax22',
       database: 'employeeTracker_db'
     },
     console.log(`Connected to the employeeTracker_db database.`)
