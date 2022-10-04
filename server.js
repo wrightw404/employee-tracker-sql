@@ -17,5 +17,20 @@ const db = mysql.createConnection(
     },
     console.log(`Connected to the employeeTracker_db database.`)
   );
-  
+
+db.connect((err) => {
+    if (err) throw err;
+    startPrompt();
+});
+
 //create prompt
+function startPrompt(){
+    inquirer.prompt([ 
+        { 
+            name:'userInput',
+            type:'list',
+            message:'Welcome to employee tracker, please select what you would like to do',
+            choices:['View All Departments', 'View All Roles', 'View All Employees', 'Add A Department', 'Add A Role', 'Add An Employee', 'Update An Employee(s) Role']
+        }
+    ])
+}
