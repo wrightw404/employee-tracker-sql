@@ -96,7 +96,11 @@ function viewAllDepartments(){
 }
 //viewAllRoles function
 function viewAllRoles(){
-    db.query(`SELECT * FROM roles ORDER BY `)
+    db.query(`SELECT role.role_id, role.title, role.salary, department.name, department.department_id FROM role JOIN department ON role.department_id = department.department_id ORDER BY role.role_id ASC;`, (err, res) => {
+        if (err) throw err; 
+        console.table(res);
+        startPrompt();
+    })
 }
 //viewAllEmployees function
 function viewAllEmployees(){
