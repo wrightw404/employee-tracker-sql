@@ -1,6 +1,6 @@
-const inquirer = require('inquirer');
-const mysql = require('mysql');
-const consoleTable = require('console.table');
+import { prompt } from 'inquirer';
+import { createConnection } from 'mysql';
+import consoleTable from 'console.table';
 
 const PORT = process.env.PORT || 3002;
 const app = express();
@@ -10,7 +10,7 @@ app.us(exress.json());
 
 require('dotenv').config();
 
-const db = mysql.createConnection(
+const db = createConnection(
     process.env.DB.NAME,
     process.env.DB.USER,
     process.env.DB.PASSWORD,
@@ -28,7 +28,7 @@ db.connect((err) => {
 
 //create prompt
 function startPrompt(){
-    inquirer.prompt([ 
+    prompt([ 
         { 
             name:'userInput',
             type:'list',

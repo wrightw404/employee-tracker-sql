@@ -4,5 +4,23 @@
     "dotenv": "^16.0.3",
     "inquirer": "^9.1.2",
     "mysql2": "^2.3.3"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "employee-tracker-sql",
+  "description": "# Table of Contents  * [Description](#description)  * [Installation](#installation) * [License](#license) * [Contributing](#contributing) * [Questions](#questions)",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wrightw404/employee-tracker-sql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wrightw404/employee-tracker-sql/issues"
+  },
+  "homepage": "https://github.com/wrightw404/employee-tracker-sql#readme"
 }
