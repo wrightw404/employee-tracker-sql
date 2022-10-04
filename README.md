@@ -35,6 +35,9 @@ to use this application one must install express
 MIT license 
 ## Contributing 
 William Wright was sole contributer 
+https://www.cockroachlabs.com/docs/stable/foreign-key.html#use-a-foreign-key-constraint-with-cascade
+https://www.cockroachlabs.com/docs/stable/foreign-key.html#foreign-key-actions
+
 
 ## Questions
 if you have any questions you can reach out to me via email at wrightw404@gmail.com 
