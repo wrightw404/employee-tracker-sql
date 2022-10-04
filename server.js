@@ -88,7 +88,7 @@ function startPrompt(){
 //viewAllDepartments function
 function viewAllDepartments(){
     //query to call all from department and have them ascend based by id 
-    db.query(`SELECT * FROM department ORDER BY id ASC`, (err, res ) => {
+    db.query(`SELECT * FROM department ORDER BY department_id ASC`, (err, res ) => {
         if (err) throw err;
         console.table(res);
         startPrompt();
@@ -96,7 +96,7 @@ function viewAllDepartments(){
 }
 //viewAllRoles function
 function viewAllRoles(){
-
+    db.query(`SELECT * FROM roles ORDER BY `)
 }
 //viewAllEmployees function
 function viewAllEmployees(){
