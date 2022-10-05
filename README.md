@@ -26,17 +26,19 @@ Because this application won’t be deployed, you’ll also need to create a wal
 
 ## Installation
 to use this application one must install express 
-  npm install express
-  npm install inquirer
-  install mysql2
-  install console.table
+*  npm install express
+*  npm install inquirer
+*  install mysql2
+*  install console.table
 
 ## License 
 MIT license 
 ## Contributing 
 William Wright was sole contributer 
-https://www.cockroachlabs.com/docs/stable/foreign-key.html#use-a-foreign-key-constraint-with-cascade
-https://www.cockroachlabs.com/docs/stable/foreign-key.html#foreign-key-actions
+* https://www.cockroachlabs.com/docs/stable/foreign-key.html#use-a-foreign-key-constraint-with-cascade
+* https://www.cockroachlabs.com/docs/stable/foreign-key.html#foreign-key-actions
+* https://www.w3schools.com/sql/sql_join_inner.asp
+* https://learnsql.com/blog/how-to-use-aliases-with-sql-join/
 
 
 ## Questions
