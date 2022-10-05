@@ -140,7 +140,45 @@ function addADepartment(){
 }
 //addARole function
 function addARole(){
-
+    //select all from departments to display 
+    db.query(`SELECT * FROM department;`, (err, res) => {
+        if (err) throw err;
+        var allDepartments = res.map(department => ({name: department.name, value: department.department_id}));
+    
+    inquirer.prompt([
+        //role title
+        {
+            name:'title',
+            type:'input',
+            message:'Please enter a name for the role'
+        },
+        //role salary
+        {
+            name:'salary',
+            type:'input',
+            message:'Please enter a salary for the role'
+        },
+        //role department 
+        {
+            name:'addDepartment',
+            type:'rawlist',
+            message:'Please enter the Department in which the new role will be in',
+            choices: allDepartments
+        },
+    ]).then((userInput) => {
+        db.query(`INSERT INTO role SET ?`, 
+        {
+            title: userInput.title,
+            salary: userInput.salary,
+            department_id: userInput.addDepartment
+        },
+        (err, res) => {
+            if (err) throw err; 
+            console.log(`Congratulations! A ${userInput.title} role was added to the ${userInput.addDepartment} department`);
+            startPrompt();
+        })
+    })
+    })
 }
 //addAnEmployee function
 function addAnEmployee(){
