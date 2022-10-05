@@ -20,10 +20,10 @@ VALUES
 ('Brandon', 'Beane', 1, NULL),
 ('Sean', 'McDermott', 2, NULL),
 ('Josh', 'Allen', 3, 1),
-('Stefon', 'Diggs', 4, 1),
-('Tyler', 'Bass', 5, 1),
+('Stefon', 'Diggs', 4, 2),
+('Tyler', 'Bass', 5, 3),
 ('Micah', 'Hyde', 6, NULL),
 ('Jordan', 'Poyer', 7, NULL),
-('Dawson', 'Knox', 8, 1),
-('TreMaine', 'Edmunds', 9, 1);
+('Dawson', 'Knox', 8, 4),
+('TreMaine', 'Edmunds', 9, 5);
 
