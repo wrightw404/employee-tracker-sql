@@ -232,5 +232,36 @@ function addAnEmployee(){
 }
 //updateAnEmployeeRole function
 function updateAnEmployeeRole(){
+    db.query(`SELECT * FROM role`, (err, res) => {
+        if (err) throw err;
+        var allRoles = res.map(role => ({name: role.title, value: role.role_id}));
+    db.query(`SELECT * FROM employee`, (err, res) => {
+        if (err) throw err;
+        var allEmployees = res.map(employee => ({name: employee.first_name + ' ' + employee.last_name, value: employee.employee_id}));
+
+        inquirer.prompt([
+            {
+                name:'updateEmployee',
+                type:'rawlist',
+                message:'Please select which employee you would like to update',
+                choices: allEmployees
+            },
+            {
+                name:'updateRole',
+                type:'rawlist',
+                message:'Please select the new role for the employee',
+                choices: allRoles
+            }
+        ]).then((userInput) => {
+            db.query(`UPDATE employee SET ? WHERE ?`, [{employee_id: userInput.updateEmployee},{role_id: userInput.updaeRole},],
+            (err,res) => {
+                if (err) throw err;
+                console.log(`Congratulations! The update was successful`);
+                startPrompt();
+            })
+        })
+    })
+    })
+
 
 }
