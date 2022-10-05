@@ -253,7 +253,11 @@ function updateAnEmployeeRole(){
                 choices: allRoles
             }
         ]).then((userInput) => {
-            db.query(`UPDATE employee SET ? WHERE ?`, [{employee_id: userInput.updateEmployee,},{role_id: userInput.updaeRole,},],
+            db.query(`UPDATE employee SET ? WHERE ?`, 
+            [
+                {role_id: userInput.updateRole,},
+                {employee_id: userInput.updateEmployee,},
+            ],
             (err,res) => {
                 if (err) throw err;
                 console.log(`Congratulations! The update was successful`);
