@@ -189,7 +189,43 @@ function addAnEmployee(){
     db.query(`SELECT * FROM employee`, (err, res) => {
         if (err) throw err;
         var allEmployees = res.map(employee => ({name: employee.first_name + ' ' + employee.last_name, value: employee.employee_id}));
-        
+    //inquirer prompt
+    inquirer.prompt([
+        {
+            name:'f_Name',
+            type:'input',
+            message:'Please enter the first name'
+        },
+        {
+            name:'l_Name',
+            type:'input',
+            message:'Please enter a last name'
+        },
+        {
+            name:'role',
+            type:'rawlist',
+            message:'Please select a role',
+            choices: allRoles
+        },
+        {
+            name:'manager',
+            type:'rawlist',
+            message:'Please select a manager',
+            choices: allEmployees
+        }
+
+    ]).then((userInput) => {
+        db.query(`INSERT INTO employee SET ?`, {
+            first_name: userInput.f_Name,
+            last_name: userInput.l_Name,
+            role_id: userInput.role,
+            manager_id: userInput.manager
+        }, (err, res) => {
+            if(err) throw err;
+            console.log(`Congratulations! Your employee, ${userInput.f_Name}, was added`);
+            startPrompt();
+        })
+    })
     })
     })
 
