@@ -182,6 +182,16 @@ function addARole(){
 }
 //addAnEmployee function
 function addAnEmployee(){
+    //select all from roles and employees to display
+    db.query(`SELECT * FROM role`, (err, res) => {
+        if (err) throw err;
+        var allRoles = res.map(role => ({name: role.title, value: role.role_id}));
+    db.query(`SELECT * FROM employee`, (err, res) => {
+        if (err) throw err;
+        var allEmployees = res.map(employee => ({name: employee.first_name + ' ' + employee.last_name, value: employee.employee_id}));
+        
+    })
+    })
 
 }
 //updateAnEmployeeRole function
