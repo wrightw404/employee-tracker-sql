@@ -104,12 +104,12 @@ function viewAllRoles(){
 }
 
 function viewAllEmployees(){
-    db.query(`SELECT employee.employee_id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager
-    FROM employee 
-    LEFT JOIN employee manager ON manager.manager_id = employee.manager_id
-    INNER JOIN role ON (role.role_id = employee.role_id)
-    INNER JOIN department ON (department.department_id = role.department_id)
-    ORDER BY employee.employee_id;
+    db.query(`SELECT employee.employee_id, employee.first_name, employee.last_name, role.title, department.name, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) manager
+    FROM employee manager
+    RIGHT JOIN employee ON employee.manager_id = manager.employee_id
+    JOIN role ON employee.role_id = role.role_id
+    JOIN department ON department.department_id = role.department_id
+    ORDER BY employee.employee_id ASC;
     `,
     (err, res) => {
         if (err) throw err; 
@@ -183,10 +183,10 @@ function addARole(){
 //addAnEmployee function
 function addAnEmployee(){
     //select all from roles and employees to display
-    db.query(`SELECT * FROM role`, (err, res) => {
+    db.query(`SELECT * FROM role;`, (err, res) => {
         if (err) throw err;
         var allRoles = res.map(role => ({name: role.title, value: role.role_id}));
-    db.query(`SELECT * FROM employee`, (err, res) => {
+    db.query(`SELECT * FROM employee;`, (err, res) => {
         if (err) throw err;
         var allEmployees = res.map(employee => ({name: employee.first_name + ' ' + employee.last_name, value: employee.employee_id}));
     //inquirer prompt
@@ -232,10 +232,10 @@ function addAnEmployee(){
 }
 //updateAnEmployeeRole function
 function updateAnEmployeeRole(){
-    db.query(`SELECT * FROM role`, (err, res) => {
+    db.query(`SELECT * FROM role;`, (err, res) => {
         if (err) throw err;
         var allRoles = res.map(role => ({name: role.title, value: role.role_id}));
-    db.query(`SELECT * FROM employee`, (err, res) => {
+    db.query(`SELECT * FROM employee;`, (err, res) => {
         if (err) throw err;
         var allEmployees = res.map(employee => ({name: employee.first_name + ' ' + employee.last_name, value: employee.employee_id}));
 
@@ -253,7 +253,7 @@ function updateAnEmployeeRole(){
                 choices: allRoles
             }
         ]).then((userInput) => {
-            db.query(`UPDATE employee SET ? WHERE ?`, [{employee_id: userInput.updateEmployee},{role_id: userInput.updaeRole},],
+            db.query(`UPDATE employee SET ? WHERE ?`, [{employee_id: userInput.updateEmployee,},{role_id: userInput.updaeRole,},],
             (err,res) => {
                 if (err) throw err;
                 console.log(`Congratulations! The update was successful`);
@@ -262,6 +262,4 @@ function updateAnEmployeeRole(){
         })
     })
     })
-
-
 }
